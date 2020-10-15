@@ -22,8 +22,9 @@ class App extends React.Component {
     this.setState({ searchField: e.target.value })
   }
   render() {
-    const filteredRobots = this.state.robots.filter(robot => {
-      return robot.name.toLocaleLowerCase().includes(this.state.searchField.toLocaleLowerCase())
+    const { robots, searchField } = this.state
+    const filteredRobots = robots.filter(robot => {
+      return robot.name.toLocaleLowerCase().includes(searchField.toLocaleLowerCase())
     })
     return (
       <div className='tc'>
